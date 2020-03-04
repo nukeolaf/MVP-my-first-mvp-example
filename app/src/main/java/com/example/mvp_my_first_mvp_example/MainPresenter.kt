@@ -13,6 +13,6 @@ class MainPresenter : MainContract.Presenter {
     }
 
     override fun saveInfo(info: JSONObject) {
-        model!!.saveData(info)
+        model!!.saveInfo(info)
     }
 }

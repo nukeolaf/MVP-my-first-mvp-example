@@ -4,7 +4,7 @@ import org.json.JSONObject
 
 class MainModel {
 
-    fun saveData(info: JSONObject) {
+    fun saveInfo(info: JSONObject) {
         // 데이터를 저장하는 코드
     }
 }
