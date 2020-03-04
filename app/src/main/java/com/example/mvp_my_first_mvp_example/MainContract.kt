@@ -11,5 +11,8 @@ interface MainContract {
     interface Presenter {
         fun setInfo(info: JSONObject)
         // View 에서 들어온 정보를 처리
+
+        fun saveInfo(info: JSONObject)
+        // View 에서 들어온 정보를 저장
     }
 }

@@ -6,8 +6,13 @@ class MainPresenter : MainContract.Presenter {
     // MainContract.Presenter 에서 정의한 내용을 구현한다
 
     var view: MainContract.View? = null
+    var model: MainModel? = null
 
     override fun setInfo(info: JSONObject) {
         view!!.showInfo(info)
+    }
+
+    override fun saveInfo(info: JSONObject) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 }

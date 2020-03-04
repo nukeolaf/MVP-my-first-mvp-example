@@ -15,6 +15,7 @@ class MainActivity : AppCompatActivity(), MainContract.View{
 
         presenter = MainPresenter().apply {
             view = this@MainActivity
+            model = MainModel()
         }
 
         initButton()
