@@ -23,6 +23,10 @@ class MainActivity : AppCompatActivity(), MainContract.View{
         button_submit.setOnClickListener {
             var name = name_input.text.toString()
             var email = email_input.text.toString()
+
+            name_input.text.clear()
+            email_input.text.clear()
+
             presenter.setInfo(name, email)
         }
     }
