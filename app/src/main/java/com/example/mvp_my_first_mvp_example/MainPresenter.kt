@@ -5,7 +5,7 @@ class MainPresenter : MainContract.Presenter {
 
     private var view: MainContract.View? = null
 
-    override fun setInfo() {
+    override fun setInfo(name: String, email: String) {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 }
