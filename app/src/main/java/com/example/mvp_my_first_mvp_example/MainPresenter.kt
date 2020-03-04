@@ -8,6 +8,14 @@ class MainPresenter : MainContract.Presenter {
     var view: MainContract.View? = null
     var model: MainModel? = null
 
+    override fun initInfo() {
+        var data = model!!.getInfo()
+        if (data != null) {
+            var info = JSONObject(data)
+            view!!.showInfo(info)
+        }
+    }
+
     override fun setInfo(info: JSONObject) {
         view!!.showInfo(info)
     }

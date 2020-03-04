@@ -20,10 +20,15 @@ class MainActivity : AppCompatActivity(), MainContract.View{
             }
         }
 
+        initInfo()
         initButton()
     }
 
-    private fun initButton() {
+    override fun initInfo() {
+        presenter.initInfo()
+    }
+
+    override fun initButton() {
         button_submit.setOnClickListener {
             var name = name_input.text.toString()
             var email = email_input.text.toString()
