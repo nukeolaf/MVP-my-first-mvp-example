@@ -2,10 +2,11 @@ package com.example.mvp_my_first_mvp_example
 
 public interface MainContract {
     interface View {
-        // View method
+        fun saveInfo() // 버튼을 눌러 정보 저장
+        fun showInfo() // 저장한 정보를 보여줌
     }
 
     interface Presenter {
-        // Presenter method
+        fun setInfo() // View 에서 들어온 정보를 처리
     }
 }
