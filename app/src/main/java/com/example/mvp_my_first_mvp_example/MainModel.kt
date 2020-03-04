@@ -1,7 +1,6 @@
 package com.example.mvp_my_first_mvp_example
 
 import android.content.Context
-import android.content.SharedPreferences
 import org.json.JSONObject
 
 class MainModel {
