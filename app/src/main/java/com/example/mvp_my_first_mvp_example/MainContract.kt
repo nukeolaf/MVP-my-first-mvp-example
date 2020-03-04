@@ -2,7 +2,7 @@ package com.example.mvp_my_first_mvp_example
 
 interface MainContract {
     interface View {
-        fun showInfo() // 저장한 정보를 보여줌
+        fun showInfo(name: String, email: String) // 저장한 정보를 보여줌
     }
 
     interface Presenter {

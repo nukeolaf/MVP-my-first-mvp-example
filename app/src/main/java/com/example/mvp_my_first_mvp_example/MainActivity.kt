@@ -12,7 +12,9 @@ class MainActivity : AppCompatActivity(), MainContract.View{
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        presenter = MainPresenter()
+        presenter = MainPresenter().apply {
+            view = this@MainActivity
+        }
 
         initButton()
     }
@@ -25,7 +27,8 @@ class MainActivity : AppCompatActivity(), MainContract.View{
         }
     }
 
-    override fun showInfo() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    override fun showInfo(name: String, email: String) {
+        name_output.text = name
+        email_output.text = email
     }
 }
