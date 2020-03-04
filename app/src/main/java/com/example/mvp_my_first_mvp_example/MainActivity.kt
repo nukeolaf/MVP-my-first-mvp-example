@@ -9,4 +9,12 @@ class MainActivity : AppCompatActivity(), MainContract.View{
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
     }
+
+    override fun saveInfo() {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun showInfo() {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
 }
