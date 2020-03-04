@@ -1,6 +1,6 @@
 package com.example.mvp_my_first_mvp_example
 
-public interface MainContract {
+interface MainContract {
     interface View {
         fun saveInfo() // 버튼을 눌러 정보 저장
         fun showInfo() // 저장한 정보를 보여줌
