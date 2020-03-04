@@ -13,11 +13,11 @@ class MainModel {
         var pref = context.getSharedPreferences("info", 0)
         var editor = pref.edit()
         editor.putString("info", data)
+        editor.commit()
     }
 
     fun getInfo(): String? {
         var pref = context.getSharedPreferences("info", 0)
-        var result = pref.getString("info", null)
-        return result
+        return pref.getString("info", null)
     }
 }
