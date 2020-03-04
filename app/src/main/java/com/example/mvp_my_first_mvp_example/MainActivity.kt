@@ -15,7 +15,9 @@ class MainActivity : AppCompatActivity(), MainContract.View{
 
         presenter = MainPresenter().apply {
             view = this@MainActivity
-            model = MainModel()
+            model = MainModel().apply {
+                context = this@MainActivity
+            }
         }
 
         initButton()
@@ -34,6 +36,7 @@ class MainActivity : AppCompatActivity(), MainContract.View{
             email_input.text.clear()
 
             presenter.setInfo(info)
+            presenter.saveInfo(info)
         }
     }
 
