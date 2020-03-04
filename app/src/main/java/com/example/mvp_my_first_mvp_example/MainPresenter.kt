@@ -6,6 +6,8 @@ class MainPresenter : MainContract.Presenter {
     var view: MainContract.View? = null
 
     override fun setInfo(name: String, email: String) {
-        view!!.showInfo(name, email)
+        var nameSet = "name : $name"
+        var emailSet = "email : $email"
+        view!!.showInfo(nameSet, emailSet)
     }
 }
