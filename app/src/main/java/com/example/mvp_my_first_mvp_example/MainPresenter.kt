@@ -13,6 +13,6 @@ class MainPresenter : MainContract.Presenter {
     }
 
     override fun saveInfo(info: JSONObject) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        model!!.saveData(info)
     }
 }
