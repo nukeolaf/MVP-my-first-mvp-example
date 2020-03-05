@@ -4,8 +4,6 @@ import org.json.JSONObject
 
 interface MainContract {
     interface View {
-        fun initInfo()
-
         fun initButton()
         // 버튼에 클릭 리스너를 달아줌
 

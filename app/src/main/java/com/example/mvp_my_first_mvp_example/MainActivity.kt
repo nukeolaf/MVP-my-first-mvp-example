@@ -20,12 +20,8 @@ class MainActivity : AppCompatActivity(), MainContract.View{
             }
         }
 
-        initInfo()
-        initButton()
-    }
-
-    override fun initInfo() {
         presenter.initInfo()
+        initButton()
     }
 
     override fun initButton() {
