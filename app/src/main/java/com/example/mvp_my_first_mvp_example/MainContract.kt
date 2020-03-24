@@ -4,20 +4,20 @@ import org.json.JSONObject
 
 interface MainContract {
     interface View {
-        fun initButton()
-        // 버튼에 클릭 리스너를 달아줌
-
+        // TextView 에 info 데이터를 보여준다
         fun showInfo(info: JSONObject)
-        // 저장한 정보를 보여줌
     }
 
     interface Presenter {
+        // onCreate 화면 초기화시에
+        // 저장된 데이터가 있는지 Model 에서 확인하고
+        // 확인한 결과에 따라 View 에 어떤 내용을 보일지 지시한다
         fun initInfo()
 
+        // TextView 에 info 데이터를 보여주라고 View 에게 지시한다
         fun setInfo(info: JSONObject)
-        // View 에서 들어온 정보를 처리
 
+        // EditText 에 입력된 info 데이터를 저장하라고 Model 에게 지시한다
         fun saveInfo(info: JSONObject)
-        // View 에서 들어온 정보를 저장
     }
 }

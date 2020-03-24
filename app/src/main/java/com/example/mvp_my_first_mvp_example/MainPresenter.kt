@@ -1,26 +1,29 @@
-package com.example.mvp_my_first_mvp_example
-
+import com.example.mvp_my_first_mvp_example.MainContract
+import com.example.mvp_my_first_mvp_example.data.InfoDataSource
+import com.example.mvp_my_first_mvp_example.data.InfoRepository
 import org.json.JSONObject
 
-class MainPresenter : MainContract.Presenter {
-    // MainContract.Presenter 에서 정의한 내용을 구현한다
-
-    var view: MainContract.View? = null
-    var model: MainModel? = null
+class MainPresenter(
+    val view: MainContract.View,
+    val repository: InfoRepository
+) : MainContract.Presenter {
 
     override fun initInfo() {
-        var data = model!!.getInfo()
-        if (data != null) {
-            var info = JSONObject(data)
-            view!!.showInfo(info)
-        }
+        repository.getInfo(object: InfoDataSource.LoadInfoCallback {
+            override fun onInfoLoaded(info: JSONObject) {
+                view.showInfo(info)
+            }
+            override fun onDataNotAvailable() {
+                // 아무것도 하지 않음
+            }
+        })
     }
 
     override fun setInfo(info: JSONObject) {
-        view!!.showInfo(info)
+        view.showInfo(info)
     }
 
     override fun saveInfo(info: JSONObject) {
-        model!!.saveInfo(info)
+        repository.saveInfo(info)
     }
 }
