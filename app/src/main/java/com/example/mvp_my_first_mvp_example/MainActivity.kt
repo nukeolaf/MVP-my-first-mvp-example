@@ -1,41 +1,39 @@
 package com.example.mvp_my_first_mvp_example
 
+import MainPresenter
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.mvp_my_first_mvp_example.data.InfoRepository
 import kotlinx.android.synthetic.main.activity_main.*
 import org.json.JSONObject
 
 class MainActivity : AppCompatActivity(), MainContract.View{
 
-    lateinit var presenter: MainPresenter
+    private lateinit var presenter: MainPresenter
+    private lateinit var repository: InfoRepository
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        presenter = MainPresenter().apply {
-            view = this@MainActivity
-            model = MainModel().apply {
-                context = this@MainActivity
-            }
-        }
+        repository = InfoRepository(this)
+        presenter = MainPresenter(this@MainActivity, repository)
 
-        initInfo()
-        initButton()
-    }
-
-    override fun initInfo() {
         presenter.initInfo()
+        initButtonListener()
     }
 
-    override fun initButton() {
+    override fun showInfo(info: JSONObject) {
+        name_output.text = info.getString("name")
+        email_output.text = info.getString("email")
+    }
+
+    fun initButtonListener() {
         button_submit.setOnClickListener {
-            var name = name_input.text.toString()
-            var email = email_input.text.toString()
 
             var info = JSONObject()
-            info.put("name", name)
-            info.put("email", email)
+            info.put("name", name_input.text.toString())
+            info.put("email", email_input.text.toString())
 
             name_input.text.clear()
             email_input.text.clear()
@@ -43,10 +41,5 @@ class MainActivity : AppCompatActivity(), MainContract.View{
             presenter.setInfo(info)
             presenter.saveInfo(info)
         }
-    }
-
-    override fun showInfo(info: JSONObject) {
-        name_output.text = info.getString("name")
-        email_output.text = info.getString("email")
     }
 }
